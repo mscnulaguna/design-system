@@ -11,6 +11,20 @@ import {
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 
+/**
+ * AlertDialogBasic - MSC Custom Component
+ * ========================================
+ * A pre-configured alert dialog component with MSC branding and messaging.
+ * This is an app-specific custom variant of the base AlertDialog from shadcn/ui.
+ *
+ * USAGE:
+ * <AlertDialogBasic />
+ *
+ * CUSTOMIZATION:
+ * Edit the text content, button labels, and styling as needed for your use case.
+ * For generic AlertDialog patterns, use the base AlertDialog component instead.
+ */
+
 export function AlertDialogBasic() {
   return (
     <AlertDialog>
