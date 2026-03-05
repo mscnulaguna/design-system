@@ -36,11 +36,21 @@ const SEARCH_CATEGORIES = [
   { id: 'patterns', label: 'Patterns' },
 ]
 
-export function SearchDialog() {
+export function SearchDialog({ 
+  open, 
+  onOpenChange 
+}: { 
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
+}) {
   const [isOpen, setIsOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+  // Use controlled state if provided, otherwise use internal state
+  const dialogOpen = open !== undefined ? open : isOpen
+  const setDialogOpen = onOpenChange || setIsOpen
 
   const dropdownRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -73,7 +83,7 @@ export function SearchDialog() {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Escape') {
       setIsDropdownOpen(false)
-      setIsOpen(false)
+      setDialogOpen(false)
     }
   }
 
@@ -88,7 +98,7 @@ export function SearchDialog() {
       category: selectedCategory,
     })
 
-    setIsOpen(false)
+    setDialogOpen(false)
     setSearchQuery('')
   }
 
@@ -101,18 +111,20 @@ export function SearchDialog() {
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      {/* Search Icon Button */}
-      <DialogTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="h-12 w-12"
-          aria-label="Open search"
-        >
-          <Search className="h-5 w-5" />
-        </Button>
-      </DialogTrigger>
+    <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+      {/* Search Icon Button - Only show when not controlled externally */}
+      {open === undefined && (
+        <DialogTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-12 w-12"
+            aria-label="Open search"
+          >
+            <Search className="h-5 w-5" />
+          </Button>
+        </DialogTrigger>
+      )}
 
       {/* Search Dialog */}
       <DialogContent className="max-w-2xl sm:rounded-lg px-6 pb-6 pt-10">
