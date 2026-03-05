@@ -129,3 +129,106 @@
       "Segoe UI Emoji", "Segoe UI Symbol";
   }
 }
+
+/* ==================== SONNER TOAST BOXED STYLING ==================== */
+.toaster-item {
+  border-radius: 0 !important;
+}
+
+.sonner-toast {
+  border-radius: 0 !important;
+  border: 2px solid rgb(100, 184, 230) !important;
+  background-color: rgb(240, 249, 255) !important;
+  color: rgb(7, 68, 104) !important;
+  padding: 16px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s ease !important;
+}
+
+.sonner-toast:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Success Toast */
+.sonner-toast.sonner-toast-success {
+  border-color: rgb(34, 197, 94) !important;
+  background-color: rgb(240, 253, 244) !important;
+  color: rgb(20, 83, 45) !important;
+}
+
+/* Error Toast */
+.sonner-toast.sonner-toast-error {
+  border-color: rgb(248, 113, 72) !important;
+  background-color: rgb(254, 242, 240) !important;
+  color: rgb(127, 29, 20) !important;
+}
+
+/* Warning Toast */
+.sonner-toast.sonner-toast-warning {
+  border-color: rgb(251, 146, 60) !important;
+  background-color: rgb(254, 248, 240) !important;
+  color: rgb(92, 51, 23) !important;
+}
+
+/* Default/Info Toast */
+.sonner-toast.sonner-toast-default {
+  border-color: rgb(100, 184, 230) !important;
+  background-color: rgb(240, 249, 255) !important;
+  color: rgb(7, 68, 104) !important;
+}
+
+/* Toast Title */
+.sonner-toast-title {
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: inherit !important;
+}
+
+/* Toast Description */
+.sonner-toast-description {
+  font-size: 13px !important;
+  color: inherit !important;
+  opacity: 0.85 !important;
+  margin-top: 4px !important;
+  font-weight: 400 !important;
+}
+
+/* Close Button */
+.sonner-close-button {
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  color: currentColor !important;
+  opacity: 0.6 !important;
+  transition: opacity 0.2s !important;
+}
+
+.sonner-close-button:hover {
+  opacity: 1 !important;
+}
+
+/* Action Button */
+.sonner-toast button {
+  border-radius: 0 !important;
+  border: 2px solid rgb(59, 130, 246) !important;
+  background-color: transparent !important;
+  color: rgb(37, 99, 235) !important;
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  transition: all 0.2s !important;
+  cursor: pointer !important;
+}
+
+.sonner-toast button:hover {
+  background-color: rgb(59, 130, 246) !important;
+  color: white !important;
+}
+
+.sonner-toast button:active {
+  transform: scale(0.98) !important;
+}
+
+/* Remove border-radius from all nested elements */
+.sonner-toast * {
+  border-radius: 0 !important;
+}

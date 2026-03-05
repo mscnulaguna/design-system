@@ -31,14 +31,13 @@ import { Button } from '@/components/ui/button'
 export function Footer() {
   return (
     <footer className="w-full bg-gray-50 border-t border-border/40">
-      {/* Main Footer Content - Max width 1700px matching Navbar and page layouts */}
-      {/* Controls footer max width. Increase here if large screens feel too tight. */}
-      <div className="mx-auto max-w-[1700px] px-4 sm:px-8 md:px-12 py-12 sm:py-16">
+      {/* Main Footer Content - Compact spacing */}
+      <div className="mx-auto max-w-[1700px] px-4 sm:px-8 md:px-12 py-8 sm:py-10">
        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] gap-8 md:gap-12 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] gap-6 md:gap-8 mb-0">
           {/* Logo Section */}
           <div className="flex flex-col items-center md:items-start md:justify-start">
-            <div className="relative h-24 w-32">
+            <div className="relative h-28 w-40">
               <Image
                 src="/logos/msclogofooter.svg"
                 alt="MSC Logo"
@@ -49,30 +48,30 @@ export function Footer() {
           </div>
 
           {/* Contact Us and Follow Us - Nested Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Contact Us Column */}
             <div className="text-center md:text-left">
-              <h3 className="text-lg font-semibold mb-4 text-foreground">Contact Us</h3>
-              <div className="space-y-3">
+              <h3 className="text-base font-semibold mb-3 text-foreground">Contact Us</h3>
+              <div className="space-y-2">
                 {/* Address */}
                 <a
                   href="https://maps.google.com/?q=KM+53+Pan+Philippine+Highway,+Brgy.+Milagrosa,+Calamba,+Philippines"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col md:flex-row items-center md:items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors justify-center md:justify-start"
+                  className="flex flex-col md:flex-row items-center md:items-start gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors justify-center md:justify-start"
                   aria-label="MSC Office Address"
                 >
-                  <MapPin className="h-5 w-5 flex-shrink-0" />
+                  <MapPin className="h-4 w-4 flex-shrink-0" />
                   <span>KM 53 Pan Philippine Highway, Brgy. Milagrosa, Calamba, Philippines, 4027</span>
                 </a>
 
                 {/* Email */}
                 <a
                   href="mailto:msc@nu-laguna.edu.ph"
-                  className="flex flex-col md:flex-row items-center md:items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors justify-center md:justify-start"
+                  className="flex flex-col md:flex-row items-center md:items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors justify-center md:justify-start"
                   aria-label="Contact email"
                 >
-                  <Mail className="h-5 w-5 flex-shrink-0" />
+                  <Mail className="h-4 w-4 flex-shrink-0" />
                   <span>msc@nu-laguna.edu.ph</span>
                 </a>
               </div>
@@ -80,9 +79,9 @@ export function Footer() {
 
             {/* Follow Us Column */}
             <div className="text-center md:text-left">
-              <h3 className="text-lg font-semibold mb-4 text-foreground">Follow Us</h3>
+              <h3 className="text-base font-semibold mb-3 text-foreground">Follow Us</h3>
               {/* Custom project icons - stored in /public/icons/ */}
-              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+              <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                 {/* Facebook */}
                 <a
                   href="https://facebook.com"
@@ -201,7 +200,7 @@ export function Footer() {
 
           {/* Partner with Us Section */}
           <div className="flex items-center justify-center md:items-center md:justify-end">
-            <Button className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 h-auto">
+            <Button className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-1 h-auto text-sm">
               Partner with Us
             </Button>
           </div>
@@ -209,9 +208,9 @@ export function Footer() {
       </div>
 
       {/* Bottom Copyright Section */}
-      <div className="w-full bg-blue-600 text-white py-4">
+      <div className="w-full bg-blue-600 text-white py-2">
         <div className="mx-auto max-w-[1700px] px-4 sm:px-8 md:px-12">
-          <p className="text-center text-sm">
+          <p className="text-center text-xs">
             © 2026 NU Laguna Microsoft Student Community | All Rights Reserved.
           </p>
         </div>

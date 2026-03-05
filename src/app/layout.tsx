@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Toaster } from "sonner";
-import { Navbar } from "@/components/layout/Navbar";
+import { Toaster } from "@/components/ui/sonner";
+import { NavbarWrapper } from "@/components/layout";
 import "./globals.css";
 
 
@@ -35,26 +35,32 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`} suppressHydrationWarning>
-        {/* Navbar - Client Component with internal state */}
-        <Navbar logoSrc="/logos/msclogo.svg" />
+        {/* Navbar - Client Component Wrapper */}
+        <NavbarWrapper logoSrc="/logos/msclogo.svg" />
         {children}
         {/*
           SONNER TOASTER
           Displays toast notifications throughout the app.
           Position: bottom-right
-          Theme: Inherits from CSS variables
+          Theme: Light mode
+          
+          Styling Features:
+          - Boxed edges: 2px borders, sharp corners
+          - System color scheme (blue, green, red, orange)
+          - Smooth animations and transitions
+          - CSS-based customization in globals.css
 
           To use:
-          import { toast } from "sonner"
+          import { toast } from 'sonner'
 
+          toast("Default message")
           toast.success("Success message")
           toast.error("Error message")
-          toast.info("Info message")
           toast.warning("Warning message")
 
           See: https://sonner.emilkowal.ski/
         */}
-        <Toaster />
+        <Toaster position="bottom-right" theme="light" richColors />
       </body>
     </html>
   );

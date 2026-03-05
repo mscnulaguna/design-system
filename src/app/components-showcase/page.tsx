@@ -67,7 +67,10 @@ import { Item, ItemIcon, ItemContent, ItemLabel, ItemDescription, ItemAction } f
 import { Carousel, CarouselItem } from '@/components/ui/carousel'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Sidebar, SidebarContent, SidebarNav, SidebarNavItem } from '@/components/ui/sidebar'
-import { Sun, Moon, AlertCircle, CheckCircle } from 'lucide-react'
+import { Sun, Moon, AlertCircle, CheckCircle, Search } from 'lucide-react'
+import { InputGroup, InputGroupContent, InputGroupSuffix } from '@/components/ui/input-group'
+import { KBD } from '@/components/ui/kbd'
+import { toast } from 'sonner'
 
 /**
  * Component Showcase Page
@@ -412,17 +415,22 @@ export default function ComponentsShowcasePage() {
                   <CardTitle className="heading-h4">Alerts</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <Alert className="bg-green-50 border-green-200">
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                    <AlertTitle className="text-green-600">Success</AlertTitle>
-                    <AlertDescription>Your action completed successfully.</AlertDescription>
+                  <Alert variant="success">
+                    <CheckCircle className="h-4 w-4" />
+                    <AlertTitle>Item added successfully</AlertTitle>
+                    <AlertDescription>This is an alert with icon, title and description.</AlertDescription>
                   </Alert>
-                  <Alert className="bg-yellow-50 border-yellow-200">
-                    <AlertCircle className="h-4 w-4 text-yellow-600" />
-                    <AlertTitle className="text-yellow-600">Warning</AlertTitle>
+                  <Alert variant="destructive">
+                    <AlertCircle className="h-4 w-4" />
+                    <AlertTitle>Please check the marked fields</AlertTitle>
+                    <AlertDescription>There was a problem, please check the indicated fields.</AlertDescription>
+                  </Alert>
+                  <Alert variant="warning">
+                    <AlertCircle className="h-4 w-4" />
+                    <AlertTitle>Warning</AlertTitle>
                     <AlertDescription>Please review this important message.</AlertDescription>
                   </Alert>
-                  <Alert>
+                  <Alert variant="info">
                     <AlertCircle className="h-4 w-4" />
                     <AlertTitle>Info</AlertTitle>
                     <AlertDescription>This is an informational alert message.</AlertDescription>
@@ -771,6 +779,101 @@ export default function ComponentsShowcasePage() {
                 <div className="flex-1 p-6">
                   <h3 className="heading-h4">Main Content</h3>
                   <p className="body-text text-muted-foreground mt-2">Content goes here</p>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+
+          {/* ===== SECTION 18: INPUT GROUP WITH KBD ===== */}
+          <section className="mb-12">
+            <h2 className="heading-h2 mb-6">Input Group with KBD</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="heading-h4">Search Input</CardTitle>
+                  <CardDescription>Input group with search icon and keyboard shortcut</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <InputGroup className="w-full">
+                    <Search className="absolute left-3 h-4 w-4 text-muted-foreground" />
+                    <InputGroupContent 
+                      placeholder="Search components..."
+                      className="pl-9"
+                    />
+                    <InputGroupSuffix>
+                      <KBD>Ctrl K</KBD>
+                    </InputGroupSuffix>
+                  </InputGroup>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="heading-h4">Keyboard Shortcuts</CardTitle>
+                  <CardDescription>Display common keyboard shortcuts</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span>Save</span>
+                    <KBD>Ctrl S</KBD>
+                  </div>
+                  <Separator />
+                  <div className="flex items-center justify-between">
+                    <span>Find</span>
+                    <KBD>Ctrl F</KBD>
+                  </div>
+                  <Separator />
+                  <div className="flex items-center justify-between">
+                    <span>Close</span>
+                    <KBD>Esc</KBD>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* ===== SECTION 19: TOAST ===== */}
+          <section className="mb-12">
+            <h2 className="heading-h2 mb-6">Toast Notifications</h2>
+            <Card>
+              <CardHeader>
+                <CardTitle className="heading-h4">Toast Examples</CardTitle>
+                <CardDescription>Click buttons to show toast notifications in the bottom right. Features include sharp boxed edges, system color scheme integration, and smooth transitions.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="mb-4 p-3 bg-gray-50 rounded-none border border-gray-300 text-sm text-gray-700">
+                  <p className="font-semibold mb-2">Design Features:</p>
+                  <ul className="list-disc list-inside space-y-1 text-xs">
+                    <li>Boxed edges with 2px borders and sharp corners</li>
+                    <li>Primary blue for default toasts (#00A2ED)</li>
+                    <li>Destructive red for error messages (#F04E1F)</li>
+                    <li>Green for success notifications</li>
+                    <li>Orange for warning messages</li>
+                    <li>Smooth animations and transitions</li>
+                    <li>Built with Sonner notification library</li>
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <Button onClick={() => toast('Scheduled: Catch up', {
+                    description: 'Friday, February 10, 2023 at 5:57 PM',
+                  })} variant="outline">
+                    Show Default Toast
+                  </Button>
+                  <Button onClick={() => toast.success('Item added successfully', {
+                    description: 'The item has been added to your collection.',
+                  })} variant="outline">
+                    Show Success Toast
+                  </Button>
+                  <Button onClick={() => toast.error('Please check the marked fields', {
+                    description: 'There was a problem with your submission. Please review and try again.',
+                  })} variant="outline">
+                    Show Error Toast
+                  </Button>
+                  <Button onClick={() => toast.warning('This action cannot be undone', {
+                    description: 'Please make sure you want to proceed before confirming.',
+                  })} variant="outline">
+                    Show Warning Toast
+                  </Button>
                 </div>
               </CardContent>
             </Card>
